@@ -1,3 +1,4 @@
+ HEAD
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
@@ -32,3 +33,39 @@ flutter {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+    namespace "com.badr.boddaalalamy"
+    compileSdkVersion 34
+
+    defaultConfig {
+        applicationId "com.badr.boddaalalamy"
+        minSdkVersion 21
+        targetSdkVersion 34
+        versionCode 1
+        versionName "1.0.0"
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            // عند تجهيز keystore للتوقيع، قم باستبداله هنا
+            signingConfig signingConfigs.debug
+            shrinkResources false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+flutter {
+    source '../..'
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+ bd5316fb65539fb881449f768ef087f636abe0ca
